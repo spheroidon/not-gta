@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Management</title>
+</head>
+<body>
+    <h1>Car Management</h1>
+
+    <form action="/add" method="post">
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" name="brand" required><br><br>
+
+        <label for="model">Model:</label>
+        <input type="text" id="model" name="model" required><br><br>
+
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" required><br><br>
+
+        <input type="submit" value="Add Car">
+    </form>
+
+    <br>
+
+    <h2>Car List:</h2>
+    <ul>
+        {% for car in cars %}
+            <li>{{ car[1] }} - {{ car[2] }} ({{ car[3] }}) <a href="/delete/{{ car[0] }}">Delete</a> <a href="/edit/{{ car[0] }}">Edit</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
